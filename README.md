@@ -1,2 +1,2 @@
 # git-tutorial
-it my config 
+it's my config 
