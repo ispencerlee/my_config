@@ -1,1 +1,1 @@
-# This ia my personal config 
+# This is my personal config 
