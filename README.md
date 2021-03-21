@@ -1,2 +1,1 @@
-# git-tutorial
-it's my config 
+# This ia my personal config 
