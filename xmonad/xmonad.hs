@@ -147,7 +147,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
-    , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
+    --, ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
     ]
     ++
 
@@ -205,7 +205,9 @@ myLayout = gaps [(U,0),(D,0),(R,0),(L,0)] $ Tall 1 (3/100) (1/2) ||| Full
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
-myManageHook = mempty ------------------------------------------------------------------------
+myManageHook = mempty 
+
+------------------------------------------------------------------------
 -- Event handling
 
 -- * EwmhDesktops users should change this to ewmhDesktopsEventHook
