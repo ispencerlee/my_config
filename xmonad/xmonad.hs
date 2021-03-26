@@ -38,7 +38,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 2
+myBorderWidth   = 1
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -69,7 +69,7 @@ myFocusedBorderColor = "#ac9890"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm,              xK_Return), spawn $ XMonad.terminal conf)
     
     -- volume keys
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
@@ -111,7 +111,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_m     ), windows W.focusMaster  )
 
     -- Swap the focused window and the master window
-    , ((modm,               xK_Return), windows W.swapMaster)
+    --, ((modm,               xK_Return), windows W.swapMaster)
 
     -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
@@ -238,7 +238,7 @@ myLogHook = return ()
 --myStartupHook = return ()
 myStartupHook = do 
   spawnOnce "nm-applet &"
--- spawnOnce "picom --experimental-backends &"
+  spawnOnce "picom --experimental-backends &"
   spawnOnce "nitrogen --restore &"
 --  spawnOnce "setxkbmap -option caps:swapescape"
   spawnOnce "fcitx5"
