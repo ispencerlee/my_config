@@ -34,7 +34,7 @@ Config {
                       -- Time and date
                       Run Date "<fn=1>\xf133 </fn>  %d %b %H:%M " "date" 60
                       -- Network up and down
-                    , Run DynNetwork ["-t", "<fn=1>\xf0ab </fn> <rx>kb  <fn=1>\xf0aa </fn> <tx>kb", "--","--devices","wlp2s0,enp0s31f6,enp0s20f0u1u1" ] 20
+                    , Run DynNetwork ["-t", "<fn=1>\xf0ab </fn> <rx>kb  <fn=1>\xf0aa </fn> <tx>kb", "--","--devices","wlan0,eno1" ] 20
                       -- Cpu usage in percent
                     , Run Cpu ["-t", "<fn=1>\xf108 </fn> <total>%","-H","50","--high","red"] 20
 
@@ -89,5 +89,4 @@ Config {
 
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <action=~/scripts/sysinfo-popup.sh><fc=#57c7ff><fn=1>   </fn></fc></action> | %UnsafeStdinReader% }{ |   <fc=#f1fa8c>%cpu%</fc> |  <fc=#ffb86c>%memory%</fc> | <fc=#5af78e>%dynnetwork%</fc> | <fc=#8be9fd>%alsa:default:Master%</fc> | %battery%  <fc=#ff6ac1>%uptime%</fc> | <fc=#57c7ff> %date%  </fc>"
-       }
+       , template = " <action=~/scripts/sysinfo-popup.sh><fc=#57c7ff><fn=1>   </fn></fc></action> | %UnsafeStdinReader% }{  <fc=#5af78e>%dynnetwork%</fc> | <fc=#f1fa8c>%cpu%</fc> | <fc=#ffb86c>%memory%</fc> |  <fc=#8be9fd>%alsa:default:Master%</fc> | %battery%  <fc=#ff6ac1>%uptime%</fc> | <fc=#57c7ff> %date%  </fc>" }
