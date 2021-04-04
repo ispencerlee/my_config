@@ -38,7 +38,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 1
+myBorderWidth   = 0
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -80,11 +80,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_MonBrightnessUp), spawn "lux -a 10%")
     , ((0, xF86XK_MonBrightnessDown), spawn "lux -s 10%")
 
+    -- touchpad 
+    , ((modm,               xK_o     ), spawn "xinput disable 12")
+    , ((modm .|. shiftMask, xK_o     ), spawn "xinput enable 12")
+
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "rofi -show drun")
 
     -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "firefox")
+    , ((modm .|. shiftMask, xK_p     ), spawn "google-chrome-stable")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -240,6 +244,7 @@ myStartupHook = do
   spawnOnce "nm-applet &"
   spawnOnce "picom --experimental-backends &"
   spawnOnce "nitrogen --restore &"
+  spawnOnce "redshift"
 --  spawnOnce "setxkbmap -option caps:swapescape"
   spawnOnce "fcitx5"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true  --transparent true --alpha 0 --tint 0x282c34  --height 28 &"
