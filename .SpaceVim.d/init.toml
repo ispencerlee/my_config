@@ -82,3 +82,13 @@
 [[layers]]
   name = "lang#html"
 
+[[layers]]
+  name = "lang#latex"
+
+[[custom_plugins]]
+  name = "vim-latex/vim-latex"
+  merged = false
+
+[[layers]]
+  name = "lang#python"
+  format_on_save = 1 
