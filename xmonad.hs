@@ -38,7 +38,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 0
+myBorderWidth   = 1
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -73,22 +73,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     
     -- volume keys
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-    , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
-    , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
+    , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
 
     -- backlight keys 
-    , ((0, xF86XK_MonBrightnessUp), spawn "lux -a 10%")
-    , ((0, xF86XK_MonBrightnessDown), spawn "lux -s 10%")
+    , ((0, xF86XK_MonBrightnessUp), spawn "lux -a 2%")
+    , ((0, xF86XK_MonBrightnessDown), spawn "lux -s 2%")
 
     -- touchpad 
-    , ((modm,               xK_o     ), spawn "xinput disable 12")
-    , ((modm .|. shiftMask, xK_o     ), spawn "xinput enable 12")
+    , ((modm,               xK_o     ), spawn "xinput disable 'MSFT0004:00 06CB:CD98 Touchpad'")
+    , ((modm .|. shiftMask, xK_o     ), spawn "xinput enable 'MSFT0004:00 06CB:CD98 Touchpad'")
 
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "rofi -show drun")
 
-    -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "google-chrome-stable")
+    -- launch google-chrome-stable or firefox
+    , ((modm .|. shiftMask, xK_p     ), spawn "firefox")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -243,11 +243,13 @@ myLogHook = return ()
 myStartupHook = do 
   spawnOnce "nm-applet &"
   spawnOnce "picom --experimental-backends &"
-  spawnOnce "nitrogen --restore &"
+  --spawnOnce "nitrogen --restore &"
+  spawnOnce "feh --bg-scale /home/ispencer/Pictures/Wallpapers/pexels-pixabay-2156.jpg"
   spawnOnce "redshift"
 --  spawnOnce "setxkbmap -option caps:swapescape"
   spawnOnce "fcitx5"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true  --transparent true --alpha 0 --tint 0x282c34  --height 28 &"
+  --spawnOnce "setxkbmap us -variant colemak"
 
   
 

@@ -29,6 +29,7 @@
     vimcompatible = true
     bootstrap_before = "myspacevim#before"
     bootstrap_after  = "myspacevim#after"
+    vim_help_language = "cn"
 
 
 
@@ -49,11 +50,14 @@
   default_position = 'top'
   default_height = 30
 
+#markdown 
+
 [[layers]]
   name = "lang#markdown"
 
 
 #C++ 
+
 [[layers]]
   name = 'lang#c' 
 
@@ -85,10 +89,9 @@
 [[layers]]
   name = "lang#latex"
 
-[[custom_plugins]]
-  name = "vim-latex/vim-latex"
-  merged = false
-
 [[layers]]
   name = "lang#python"
   format_on_save = 1 
+
+[[layers]]
+  name = "chinese"

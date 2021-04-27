@@ -15,3 +15,11 @@ alias n='neofetch'
 alias ra='ranger'
 alias vim='nvim'
 
+#proxy 
+export https_proxy="http://127.0.0.1:8889"
+
+# path to ruby
+set PATH /home/ispencer/.local/share/gem/ruby/3.0.0/bin $PATH
+# path to bin
+set PATH /home/ispencer/.local/bin $PATH
+
